@@ -11,7 +11,7 @@ module Recommendation
       # add the extra videos the other user liked
       (user.videos + common_videos).each do |video|
         # put the video along with the cumulative weight into hash
-        recommended[video] += weight
+        recommended[video.name] += weight
       end
     end
     # sort by weight in descending order

@@ -9,7 +9,7 @@ module Recommendation
       # calculate the weight (recommendation rating)
       weight = common_videos.size.to_f / user.videos.size
       # add the extra videos the other user liked
-      (user.videos — common_videos).each do |video|
+      (user.videos + common_videos).each do |video|
         # put the video along with the cumulative weight into hash
         recommended[video] += weight
       end

@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     render json: @user, status: :ok
   end
 
+  def recommended_videos
+    recommended_videos = @user.recommend_videos
+    render json: recommended_videos, status: :ok
+  end
+
   # POST /users
   def create
     byebug

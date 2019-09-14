@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorize_request, except: :create
-  before_action :find_user, except: %i[create index]
+  before_action :authorize_request, except: %i[create check_user]
+  before_action :find_user, except: %i[create index check_user]
 
   # GET /users
   def index
@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   # GET /users/{username}
   def show
     render json: @user, status: :ok
+  end
+
+  def check_user
+    id = params[:id]
+    user = User.where('username LIKE ? OR email LIKE ?',"#{id}", "#{id}" ).pluck(:username, :email).first
+    render json: user, status: :ok
   end
 
   def recommended_videos

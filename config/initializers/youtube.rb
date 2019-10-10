@@ -1,5 +1,3 @@
-
-
 Yt.configure do |config|
-  config.api_key = 'AIzaSyAO8dXpvZcaP2XSDFBD91H8yQ'
+  config.api_key = Rails.application.credentials.youtube_secret_key
 end

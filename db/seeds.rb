@@ -4,7 +4,7 @@ require "faker"
 User.destroy_all
 Video.destroy_all
 # using faker gem to create unique names to create users
-30.times { User.create(name: Faker::Name.unique.name, username: Faker::Name.unique.name, email: Faker::Internet.unique.email, password: 'asdfasdf', password_confirmation: 'asdfasdf') }
+30.times { User.create(title: Faker::Name.unique.name, username: Faker::Name.unique.name, email: Faker::Internet.unique.email, password: 'asdfasdf', password_confirmation: 'asdfasdf') }
 
 videos = ["Avengers: Infinity War", "Star Wars: The Force Awakens", "Avatar", "Titanic", "Jurassic World", "Black Panther", "Marvel’s The Avengers", "Star Wars: The Last Jedi", "The Dark Knight", "Beauty and the Beast", "Finding Dory", "Pirates of the Caribbean: Dead Man’s Chest", "Toy Story 3", "Wonder Woman", "Iron Man 3"]
 # create videos

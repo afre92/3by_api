@@ -9,8 +9,12 @@ class PlaylistsController < ApplicationController
 
   # GET /playlist/{playlist_name}
   def show
-
-    render json: @playlist, status: :ok
+  	playlist_and_videos = {}
+  	playlist_and_videos['name'] = @playlist.name
+  	playlist_and_videos['yt_id'] = @playlist.yt_id
+  	playlist_and_videos['videos'] = [@playlist.videos]
+  	byebug
+    render json: playlist_and_videos, status: :ok
   end
 
   private

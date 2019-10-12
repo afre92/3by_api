@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 	before_action :authorize_request
-	before_action :find_user, except: %i[index]
+	before_action :find_playlist, except: %i[index]
 
 	def index
     @playlists = Playlist.all
@@ -9,6 +9,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlist/{playlist_name}
   def show
+
     render json: @playlist, status: :ok
   end
 

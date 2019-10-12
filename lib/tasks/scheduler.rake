@@ -5,6 +5,8 @@ namespace :scheduler do
 		playlists = Playlist.all
 			playlists.each do |playlist|
 				yt_playlist = Yt::Playlist.new id: playlist.yt_id
+				playlist.views = yt_playlist.views.total
+				playlist.save
 					yt_playlist.playlist_items.each do |playlist_item|
 						playlist_item = playlist_item.snippet.data
 						video = Video.new

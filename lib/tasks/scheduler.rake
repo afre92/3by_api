@@ -1,6 +1,6 @@
 namespace :scheduler do
 
-	desc "Pull new videos from youtube playlist"
+	desc "Pull new videos from yt playlist"
 	task get_videos: :environment do
 		playlists = Playlist.all
 			playlists.each do |playlist|
@@ -8,15 +8,17 @@ namespace :scheduler do
 					yt_playlist.playlist_items.each do |playlist_item|
 						playlist_item = playlist_item.snippet.data
 						video = Video.new
+						yt_video = Yt::Video.new id:  playlist_item['resourceId']['videoId']
 						video.playlist_id = playlist.id
-						youtube_video = Yt::Video.new id:  playlist_item['resourceId']['videoId']
-						
-						#should take most of the data from youtube_video instead off playlist?
-
-						video.title = playlist_item['title']
-						video.description = playlist_item['description']
+						video.view_count = yt_video.view_count
+						video.like_count = yt_video.like_count
+						video.dislike_count = yt_video.dislike_count
+						video.length = yt_video.length
+						video.embed_html = yt_video.embed_html
+						video.title = yt_video.title
+						video.description = yt_video.description
+						video.yt_id = yt_video.id
 						video.thumbnails = playlist_item['thumbnails']
-						video.yt_id = playlist_item['resourceId']['videoId']
 						if video.save!
 							puts "Video with title #{video.title} WAS be saved"
 						else

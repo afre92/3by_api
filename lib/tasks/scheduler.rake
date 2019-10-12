@@ -9,6 +9,10 @@ namespace :scheduler do
 						playlist_item = playlist_item.snippet.data
 						video = Video.new
 						video.playlist_id = playlist.id
+						youtube_video = Yt::Video.new id:  playlist_item['resourceId']['videoId']
+						
+						#should take most of the data from youtube_video instead off playlist?
+
 						video.title = playlist_item['title']
 						video.description = playlist_item['description']
 						video.thumbnails = playlist_item['thumbnails']

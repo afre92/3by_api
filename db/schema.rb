@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_184511) do
+ActiveRecord::Schema.define(version: 2019_10_12_181319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 2019_10_10_184511) do
     t.json "thumbnails"
     t.string "yt_id"
     t.integer "playlist_id"
+    t.integer "view_count"
+    t.integer "like_count"
+    t.integer "dislike_count"
+    t.string "lenght"
+    t.string "embed_html"
   end
 
 end

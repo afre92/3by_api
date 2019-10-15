@@ -5,11 +5,10 @@ namespace :scheduler do
 		playlists = Playlist.all
 			playlists.each do |playlist|
 				yt_playlist = Yt::Playlist.new id: playlist.yt_id
-				playlist.views = yt_playlist.views.total
-				playlist.save
 					yt_playlist.playlist_items.each do |playlist_item|
 						playlist_item = playlist_item.snippet.data
 						video = Video.new
+
 						yt_video = Yt::Video.new id:  playlist_item['resourceId']['videoId']
 						video.playlist_id = playlist.id
 						video.view_count = yt_video.view_count

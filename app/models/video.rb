@@ -4,13 +4,13 @@ class Video < ApplicationRecord
   validates_uniqueness_of :yt_id
 
   def previous
-    video = Video.where("playlist_id = ? AND id < ?", self.playlist_id, self.id).first
-    video.present? ? video.id : ''
+    video = Video.where("playlist_id = ? AND id < ?", self.playlist_id, self.id).last
+    video.present? ? video.id : Video.where("playlist_id = ? AND id > ?", self.playlist_id, self.id).last.id
   end
 
   def next
     video = Video.where("playlist_id = ? AND id > ?", self.playlist_id, self.id).first
-    video.present? ? video.id : ''
+    video.present? ? video.id : Video.where("playlist_id = ? AND id < ?", self.playlist_id, self.id).first.id
   end
 
 end

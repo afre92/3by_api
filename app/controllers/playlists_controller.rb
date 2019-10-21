@@ -9,6 +9,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlist/{playlist_name}
   def show
+
   	playlist_and_videos = {}
   	playlist_and_videos['name'] = @playlist.name
   	playlist_and_videos['yt_id'] = @playlist.yt_id

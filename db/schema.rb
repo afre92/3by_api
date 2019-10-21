@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_213059) do
+ActiveRecord::Schema.define(version: 2019_10_15_170628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_213059) do
     t.string "length"
     t.string "embed_html"
     t.integer "views"
+    t.string "channel_title"
   end
 
 end

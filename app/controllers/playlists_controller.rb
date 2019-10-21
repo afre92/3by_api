@@ -12,7 +12,7 @@ class PlaylistsController < ApplicationController
   	playlist_and_videos = {}
   	playlist_and_videos['name'] = @playlist.name
   	playlist_and_videos['yt_id'] = @playlist.yt_id
-  	playlist_and_videos['videos'] = [@playlist.videos]
+  	playlist_and_videos['videos'] = [@playlist.videos.order('id DESC')]
     render json: playlist_and_videos, status: :ok
   end
 

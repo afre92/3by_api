@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/playlists', to: 'playlists#index'
   get '/playlist/:name', to: 'playlists#show'
   get '/video/:id', to: 'videos#show'
+  post '/video/:id/reaction', to: 'videos#reaction'
   resources :users, param: :_username
   get '/check_user/:id', to: 'users#check_user', :constraints => { :id => /[^\/]+/ }
   get '/recommended_videos', to: 'users#recommended_videos'

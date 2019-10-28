@@ -37,13 +37,17 @@ class UsersController < ApplicationController
 
   # PUT /users/{username}
   def update
-    # @user = User.find_by_email(params[:email])
-    # if @user&.authenticate(params[:password])
-    # end
-    unless @user.update(user_params)
-      render json: { errors: @user.errors.full_messages },
+    if @user&.authenticate(params[:current_password])
+      params[:password] = params[:new_password]
+
+      if @user.update(user_params)
+        render json: @user, status: :ok
+      else
+         render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
+      end
     end
+
   end
 
   # DELETE /users/{username}
@@ -54,7 +58,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by_username!(params[:_username])
+    @user = User.find_by_username!(params[:username])
     rescue ActiveRecord::RecordNotFound
       render json: { errors: 'User not found' }, status: :not_found
   end

@@ -38,8 +38,8 @@ class UsersController < ApplicationController
   # PUT /users/{username}
   def update
     if @user&.authenticate(params[:current_password])
-      params[:password] = params[:new_password]
-
+      params[:password] = params[:new_password] if params[:new_password].present?
+      params[:username] = params[:new_username] if params[:new_username].present?
       if @user.update(user_params)
         render json: @user, status: :ok
       else

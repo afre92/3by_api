@@ -7,6 +7,9 @@ class User < ApplicationRecord
 	has_many :liked_videos
   has_many :videos, through: :liked_videos
 
+  has_many :disliked_videos
+  has_many :videos, through: :disliked_videos
+
   has_secure_password
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }

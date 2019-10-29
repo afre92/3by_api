@@ -24,6 +24,21 @@ class UsersController < ApplicationController
     render json: recommended_videos, status: :ok
   end
 
+  def reactions
+    obj = {}
+    obj['liked'] = get_videos_info(@user.liked_videos)
+    obj['disliked'] = get_videos_info(@user.disliked_videos)
+    render json: obj, status: :ok
+  end
+
+
+  def get_videos_info(videos)
+    videos.map do |video| 
+      Video.find(video.video_id)
+    end
+    byebug
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)

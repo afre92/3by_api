@@ -26,17 +26,20 @@ class UsersController < ApplicationController
 
   def reactions
     obj = {}
+    # sort videos by latest created
     obj['liked'] = get_videos_info(@user.liked_videos)
-    obj['disliked'] = get_videos_info(@user.disliked_videos)
+    obj['disliked'] = get_videos_info(DislikedVideo.where(user_id: @user.id))
     render json: obj, status: :ok
   end
 
 
-  def get_videos_info(videos)
-    videos.map do |video| 
-      Video.find(video.video_id)
+  def get_videos_info(reacted_videos)
+    videos_info = []
+    reacted_videos.each do |reacted_video|
+      video = Video.find(reacted_video.video_id)
+      videos_info << {id: video.id, title: video.title, thumbnails: video.thumbnails, playlist: Playlist.find(video.playlist_id).name}
     end
-    byebug
+    return videos_info
   end
 
   # POST /users

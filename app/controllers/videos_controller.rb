@@ -3,9 +3,9 @@ class VideosController < ApplicationController
 	before_action :find_video
 
 	def reaction
-		if params['reaction'] == 'like'
+		if params['reaction'] == 'liked'
 			like_video
-		elsif params['reaction'] == 'dislike'
+		elsif params['reaction'] == 'disliked'
 			dislike_video
 		end
 

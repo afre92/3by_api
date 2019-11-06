@@ -5,7 +5,7 @@ namespace :scheduler do
 		playlists = Playlist.all
 			playlists.each do |playlist|
 				yt_playlist = Yt::Playlist.new id: playlist.yt_id
-				last_video_added = playlist.videos.last ? playlist.videos.last.published_at : 10.years.ago
+				last_video_added = playlist.videos.last ? playlist.videos.last.published_at : 10.years.ago.rfc3339+"0000"
 					yt_playlist.playlist_items.each do |playlist_item|
 						begin
 							playlist_item = playlist_item.snippet.data

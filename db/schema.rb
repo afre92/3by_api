@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_175530) do
     t.string "embed_html"
     t.integer "views"
     t.string "channel_title"
-    t.string "published_at"
+    t.datetime "published_at"
   end
 
 end

@@ -8,19 +8,19 @@ Video.destroy_all
 
 
 #chilling playlist
-Playlist.create(name: 'Chilling', yt_id: 'PLzWX0IlMcM22RwY8hnL-FSqplemD6cBjB')
+Playlist.create(name: 'chilling', yt_id: 'PLzWX0IlMcM22RwY8hnL-FSqplemD6cBjB')
 
 #chilling playlist
-Playlist.create(name: 'Random', yt_id: 'PLzWX0IlMcM23T23g894hJwcYCx6zPWG3c')
+Playlist.create(name: 'random', yt_id: 'PLzWX0IlMcM23T23g894hJwcYCx6zPWG3c')
 
 #chilling playlist
-Playlist.create(name: 'Funny', yt_id: 'PLzWX0IlMcM20P9t3BADblAOvmJvXQ1wZM')
+Playlist.create(name: 'funny', yt_id: 'PLzWX0IlMcM20P9t3BADblAOvmJvXQ1wZM')
 
 #chilling playlist
-Playlist.create(name: 'Trending', yt_id: 'PLzWX0IlMcM23KDgEDRZbiGw2BhnoIjtmW')
+Playlist.create(name: 'trending', yt_id: 'PLzWX0IlMcM23KDgEDRZbiGw2BhnoIjtmW')
 
 #chilling playlist
-Playlist.create(name: 'Geeky', yt_id: 'PLzWX0IlMcM20Ii_3QjCme97JLZKgxnGkI')
+Playlist.create(name: 'geeky', yt_id: 'PLzWX0IlMcM20Ii_3QjCme97JLZKgxnGkI')
 
 # create videos
 # i = 0

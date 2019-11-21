@@ -1,5 +1,3 @@
-namespace :scheduler do
-
 	desc "Pull new videos from yt playlist"
 	task import_videos: :environment do
 		playlists = Playlist.all
@@ -34,5 +32,4 @@ namespace :scheduler do
 						end
 					end
 			end
-		end
-end
+	end

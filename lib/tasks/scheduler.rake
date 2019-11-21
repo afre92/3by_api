@@ -2,6 +2,7 @@
 	task import_videos: :environment do
 		playlists = Playlist.all
 			playlists.each do |playlist|
+				next if playlist.name == "recommended"
 				yt_playlist = Yt::Playlist.new id: playlist.yt_id
 				last_video_added = playlist.videos.last ? playlist.videos.last.published_at : 10.years.ago.rfc3339+"0000"
 					yt_playlist.playlist_items.each do |playlist_item|
@@ -32,4 +33,19 @@
 						end
 					end
 			end
+	end
+
+
+	desc "like_with_test_data"
+	task simulate_likes: :environment do 
+		100.times do
+	  user = User.all[rand(0...30)]
+	  video = Video.all[rand(0...15)]
+	  byebug
+	  if user.videos.include?(video)
+	    next
+	  else
+	    user.videos << video
+	  end
+	end
 	end

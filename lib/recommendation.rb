@@ -11,10 +11,15 @@ module Recommendation
       # add the extra videos the other user liked
       (user.videos + common_videos).each do |video|
         # put the video along with the cumulative weight into hash
-        recommended[video.name] += weight
+        recommended[video.id] += weight
       end
     end
     # sort by weight in descending order
     sorted_recommended = recommended.sort_by { |key, value| value }.reverse
+    videos = []
+    sorted_recommended.each do |id, rating|
+      videos << Video.find(id)
+    end
+    videos
   end
 end

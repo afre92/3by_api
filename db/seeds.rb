@@ -20,9 +20,6 @@ Playlist.create(name: 'Funny', yt_id: 'PLzWX0IlMcM20P9t3BADblAOvmJvXQ1wZM')
 Playlist.create(name: 'Trending', yt_id: 'PLzWX0IlMcM23KDgEDRZbiGw2BhnoIjtmW')
 
 #chilling playlist
-Playlist.create(name: 'Chilling', yt_id: 'PLzWX0IlMcM22RwY8hnL-FSqplemD6cBjB')
-
-#chilling playlist
 Playlist.create(name: 'Geeky', yt_id: 'PLzWX0IlMcM20Ii_3QjCme97JLZKgxnGkI')
 
 # create videos

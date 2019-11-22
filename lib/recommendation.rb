@@ -17,8 +17,13 @@ module Recommendation
     # sort by weight in descending order
     sorted_recommended = recommended.sort_by { |key, value| value }.reverse
     videos = []
-    sorted_recommended.each do |id, rating|
-      videos << Video.find(id)
+    if sorted_recommended.present?
+      sorted_recommended.each do |id, rating|
+        videos << Video.find(id)
+      end
+    else
+      # sends last three videos to avoid site crash
+      videos = Video.last(3)
     end
     videos
   end

@@ -13,10 +13,3 @@ Playlist.create(name: 'trending', yt_id: 'PLzWX0IlMcM23KDgEDRZbiGw2BhnoIjtmW')
 Playlist.create(name: 'geeky', yt_id: 'PLzWX0IlMcM20Ii_3QjCme97JLZKgxnGkI')
 Playlist.create(name: 'recommended', yt_id: 'asdfasdf')
 
-# create videos
-# i = 0
-# 15.times do
-#   Video.create(name: videos[i])
-#   i += 1
-# end
-# # randomly associate videos with users, where no user has the same videos more than once

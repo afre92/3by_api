@@ -36,16 +36,16 @@
 	end
 
 
-	desc "like_with_test_data"
-	task simulate_likes: :environment do 
-		100.times do
-	  user = User.all[rand(0...30)]
-	  video = Video.all[rand(0...15)]
-	  byebug
-	  if user.videos.include?(video)
-	    next
-	  else
-	    user.videos << video
-	  end
-	end
-	end
+	# desc "like_with_test_data"
+	# task simulate_likes: :environment do 
+	# 	100.times do
+	#   user = User.all[rand(0...30)]
+	#   video = Video.all[rand(0...15)]
+	#   byebug
+	#   if user.videos.include?(video)
+	#     next
+	#   else
+	#     user.videos << video
+	#   end
+	# end
+	# end
